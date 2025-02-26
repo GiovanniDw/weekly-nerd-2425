@@ -1,0 +1,129 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 0.5em;
+  position: sticky;
+  top: 0;
+  width: min-content;
+  padding: 1em 2em 1em 1.5em;
+  margin-inline: auto;
+
+  overflow: visible;
+  font-weight: 700;
+  /* background: var(--c-primary); */
+
+  /* https://scroll-driven-animations.style */
+
+  /* https://cydstumpel.nl/css-scroll-driven-animations-for-creative-developers/ */
+  animation-name: stickyHeader;
+  animation-fill-mode: forwards;
+  animation-timeline: scroll();
+  animation-range: 0 120vh;
+  /* transform:  */
+  transform: scale(3) translate(calc(2vw - 1em), calc(20vh - 1em));
+  border-radius: 0;
+  /* border: 1px solid gray; */
+
+  @media (max-width: 650px) {
+    transform: scale(2) translate(calc(0vw - 1em), calc(20vh - 1em));
+    font-size: 0.7em;
+  }
+}
+
+@keyframes stickyHeader {
+  20% {
+    border-radius: 0;
+    background-color: initial;
+  }
+  100% {
+    transform: scale(1);
+    background-color: var(--c-bg-glass);
+    border-radius: 25em;
+    backdrop-filter: blur(10px);
+    font-size: 1em;
+    transform: scale(1) translate(0, 1em);
+  }
+}
+
+header a {
+  display: block;
+  width: 2.5em;
+  height: 2.5em;
+  overflow: visible;
+  animation-name: scaleHeaderLogo;
+  animation-fill-mode: forwards;
+  animation-timeline: scroll();
+  animation-range: 0 100vh;
+  transform: scale(3);
+}
+@media (max-width: 650px) {
+  /* set starting location of transform on small screen */
+  header a {
+    transform: scale(3) translate(1rem, 0);
+  }
+}
+
+@keyframes scaleHeaderLogo {
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+header > div {
+  display: inline;
+  font-weight: 200;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  position: relative;
+  animation-name: scaleHeaderText;
+  animation-fill-mode: forwards;
+  animation-timeline: scroll();
+  animation-range: 0 70vh;
+
+  @media (max-width: 650px) {
+    transform: translate(0em, 7rem);
+  }
+}
+
+@keyframes scaleHeaderText {
+  20% {
+    font-weight: 700;
+  }
+  100% {
+    font-size: 1em;
+    font-weight: 700;
+    transform: translate(0, 0);
+  }
+}
+
+header h1 {
+  font-weight: inherit;
+  margin-block: 0;
+}
+
+header h1 span {
+  position: fixed;
+  width: 7ch;
+
+  font-weight: 800;
+  line-height: 1;
+
+  animation-name: scaleHeaderSub;
+  animation-fill-mode: forwards;
+  animation-timeline: scroll();
+  animation-range: 0 50vh;
+  transform: translate(0em, -2em);
+}
+
+@keyframes scaleHeaderSub {
+  20% {
+    font-weight: 100;
+  }
+  100% {
+    font-size: 1.1em;
+    font-weight: 100;
+    opacity: 0;
+  }
+}

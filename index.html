@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="manifest" href="./public/manifest.json" />
+
+    <!-- <link rel="icon" type="image/png" href="apple-touch-icon.png" /> -->
+    <link rel="apple-touch-icon" sizes="1024x1024" href="./public/apple-touch-icon.png" />
+    <link rel="mask-icon" href="./public/logo-maskable.png" color="#fff" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <meta
+    name="theme-color"
+    content="#b3c1ac"
+    media="(prefers-color-scheme: light)" />
+  <meta
+    name="theme-color"
+    content="#333c35"
+    media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="./src/css/header.css" />
+    <script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.umd.js"></script>
+    <script src="./src/main.js" type="module" defer></script>
+
+    <title>Giovanni WAFS</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <template>
+        <header>
+          <a href=''>
+            <img src='{{ personal.avatar }}' alt=''>
+          </a>
+          <div>
+            <h1>
+            <span>Hi, my Name is</span> {{personal.nickname}}
+            </h1>
+          </div>
+        </header>
+        <section class="section-me">
+          <article>
+          <h2>Who Am I?</h2>
+          <p>
+            {{personal.bio}}
+          </p>
+        </article>
+        <article>
+          <h3>My Tech Stack</h3>
+          <ul class="stack">
+        {% for stack in personal.custom.tech_stack %}
+          <li><img height="24" width="24" src="https://cdn.simpleicons.org/{{stack}}/333c35/efefec" /> {{stack}}</li>
+        {% endfor %}
+      </ul>
+      </article>
+        <article>
+          <h3>My Playlist</h3>
+          <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/nl/playlist/housey/pl.u-76oN963FZDAoKg?l=en"></iframe>
+        </article>
+        </section>
+        <section class="section-learning">
+          <h2>Leerdoelen</h2>
+          <ul>
+            <li>Scoll Driven Animation</li>
+            <li>Transform & Transition</li>
+            <li>CSS Only?</li>
+          </ul>
+        </section>
+        <section class="everyone">
+          <h3>Who's at the Minor Web Dev?</h3>
+          <div>
+            {% for person in persons %}
+            <article class="person">
+              <div class="avatar">
+                <img src='{{person.avatar}}' alt="{{person.name}}'s Avatar">
+              </div>
+              <div class="content">
+                <h4>{{ person.name }}</h4>
+              </div>
+            </article>
+            {% endfor %}
+          </div>
+        </section>
+      </template>
+    </div>
+  </body>
+</html>
+
+

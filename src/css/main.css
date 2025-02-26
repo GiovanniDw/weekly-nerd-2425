@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+  box-sizing: border-box;
+  background-color: light-dark(var(--c-primary), var(--c-dark));
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.raleway-font {
+  font-family: 'Raleway', serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+:root {
+  color-scheme: light dark;
+
+  --c-blue: #1e90ff;
+  --c-white: #efefec;
+
+  --c-dark: #333c35;
+  --c-gray: #b7b7b7;
+  --c-green-50: #fbfbfa;
+  --c-green-100: #ecf0eb;
+  --c-green-200: #dee4db;
+  --c-green-300: #cfd8cb;
+  --c-green-400: #c1ccbb;
+  --c-green-500: #b3c1ac;
+  --c-green-600: #8f9a89;
+  --c-green-700: #6b7367;
+  --c-green-800: #474d44;
+  --c-green-900: #232622;
+
+  --c-primary: #b3c1ac;
+  --c-beige: #e4cfb3;
+  --c-beige-dark: #745833;
+  --c-bg-light: var(--c-white);
+  --c-text-light: var(--c-dark);
+
+  --c-bg-dark: var(--c-dark);
+  --c-text-dark: var(--c-white);
+
+  --c-bg-glass: rgba(128, 128, 128, 0.3);
+
+  --c-border: linear-gradient(
+    157deg,
+    rgba(255, 255, 255, 0.4) 2.12%,
+    rgba(255, 255, 255, 0) 39%,
+    rgba(255, 255, 255, 0) 54.33%,
+    rgba(255, 255, 255, 0.1) 93.02%
+  );
+  --c-border-fallback: rgba(255, 255, 255, 0.4);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', serif;
+  font-optical-sizing: auto;
+  /* max-width: 100svw; */
+  overflow: visible;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  color: light-dark(var(--c-dark), var(--c-white));
+  background-color: light-dark(var(--c-primary), var(--c-dark));
+  /* background: var(--c-primary); */
+}
+
+#app {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: flex-start; */
+  background-color: light-dark(var(--c-primary), var(--c-dark));
+}
+
+#app section:nth-child(even) {
+  color: light-dark(var(--c-green-900), var(--c-green-200));
+  background-color: light-dark(var(--c-green-200), var(--c-green-900));
+}
+
+#app section:nth-child(odd) {
+  color: light-dark(var(--c-beige-dark), var(--c-beige));
+  background-color: light-dark(var(--c-beige), var(--c-beige-dark));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h4 {
+  font-size: 1em;
+  font-weight: 600;
+  inline-size: break-all;
+}
+
+section {
+  min-height: 100svh;
+  padding: 1em;
+  width: 100%;
+}
+
+.section-me {
+  margin-top: 100vh;
+  text-align: center;
+  min-height: 100svh;
+  /* background: red; */
+  /* border: blue 1px solid; */
+}
+
+ul.stack {
+  list-style: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  justify-content: center;
+
+  li {
+    padding: 0.5em 1em;
+    /* border: 1px solid red; */
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    gap: 0.5em;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: light-dark(var(--c-dark), var(--c-white));
+    background-color: light-dark(var(--c-white), var(--c-dark));
+  }
+}
+
+.section-learning {
+  min-height: 100svh; 
+}
+
+section.everyone > div {
+  margin-top: 0.5em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: masonry;
+  grid-gap: 1em;
+}
+
+article.person {
+  display: flex;
+  flex-direction: row;
+  justify-items: baseline;
+  border: 1px solid gray;
+  border-radius: 1.5em;
+  padding: 0.5em;
+  overflow: hidden;
+
+  color: light-dark(var(--c-green-700), var(--c-green-300));
+  background-color: light-dark(var(--c-green-300), var(--c-green-700));
+  /* alt bg color */
+  /* background-color: light-dark(var(--c-white), var(--c-dark)); */
+}
+
+section.everyone article.person div.avatar {
+  display: flex;
+  border-radius: 100%;
+  overflow: hidden;
+  height: 2em;
+  width: 2em;
+  aspect-ratio: 1/1;
+}
+
+section.everyone article.person div.content {
+  padding: 0.5em;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+section.everyone article div.content h4 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+img {
+  max-width: 100%;
+}
